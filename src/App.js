@@ -1,23 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import PostContainer from './Components/PostContainer';
+import FormContainer from './Components/FormContainer';
 
 function App() {
+
+  const [userPosts, setUserPosts] = useState([]);
+
+  useEffect(()=>{
+    fetch('http://localhost:8000/post')
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      console.log(data)
+      setUserPosts(data)
+    })
+  }, [])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src={logo} className="App-logo" alt="logo" />
+      <PostContainer posts={userPosts} />
+      <br/>
+      <br/>
+      <FormContainer />
     </div>
   );
 }
