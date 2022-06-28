@@ -1,13 +1,23 @@
-import Post from "./Post"
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
+const Posts = () => {
+  const [userPosts, setUserPosts] = useState([]);
 
-const Posts = ({posts}) => {
+  useEffect(() => {
+    fetch("http://localhost:8000/post")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserPosts(data);
+      });
+  }, []);
+
   return (
-    <div style={{display: "flex", flexDirection: "column", maxWidth: "50%", marginLeft: '25%'}}>
-        {posts.map(post => < Post post={post} key={post._id}/>)}
-
+    <div>
+      <Outlet context={userPosts} />
     </div>
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;
