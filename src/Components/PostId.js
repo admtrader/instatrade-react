@@ -16,7 +16,7 @@ const PostId = ({}) => {
   return (
     <div>
       <h1>{mainPost.name}</h1>
-      <img src={mainPost.imageUrl} alt="shoe" />
+      <img style={{height: "40vh", width: "auto"}} src={mainPost.imageUrl} alt="shoe" />
       <h2>{mainPost.body}</h2>
       
     </div>

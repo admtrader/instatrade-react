@@ -1,4 +1,5 @@
-import FormPost from "./FormPost"
+import FormPost from "./FormPost";
+import "./Form.css";
 
 const FormContainer = () => {
   return (

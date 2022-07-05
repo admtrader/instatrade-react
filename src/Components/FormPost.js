@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./Form.css";
+
 
 const FormPost = () => {
 
@@ -8,13 +10,19 @@ const FormPost = () => {
     const [imageUrl, setImage] = useState('');
 		const [message, setMessage] = useState("");
 
+
+		const tokenString = sessionStorage.getItem('token');
+		const userToken = JSON.parse(tokenString)
+		
+
     let handlePost = async (e) => {
       e.preventDefault();
 			try {
 				let res = await fetch("http://localhost:8000/post", {
 					method: "POST",
 					headers: {
-						"Content-Type": "application/json"
+						"Content-Type": "application/json",
+						"Authorization": `${userToken.token}`,
 					},
 					body: JSON.stringify({
 						name: name,
@@ -25,7 +33,7 @@ const FormPost = () => {
 				});
 				let resJson = await res.json();
 				if(res.status === 200) {
-					setMessage("User created successfully");
+					setMessage("Post created successfully");
 				} else {
 					setMessage("Some error occured");
 				}
@@ -48,34 +56,34 @@ const FormPost = () => {
               value={name}
 							onChange={(e) => setName(e.target.value)}
             />
-						<br/>
+						<br/><br/>
 						<label>Post Date:</label>
 						<input 
               type='text'
               value={date}
 							onChange={(e) => setDate(e.target.value)}
             />
-						<br/>
+						<br/><br/>
 						<label>Post Body</label>
 						<input 
               type='text'
               value={body}
 							onChange={(e) => setBody(e.target.value)}
             />
-						<br/>
+						<br/><br/>
 						<label>Image URL:</label>
 						<input 
               type='text'
               value={imageUrl}
 							onChange={(e) => setImage(e.target.value)}
             />
-						<br/>
+						<br/><br/>
 					<input type='submit' value='Submit' />
         </form>
 				<br/>
 				<br/>
 				<div className="message">{message ? <p>{message}</p> : null}</div>
-				
+	
                   
     	</div>
 		)

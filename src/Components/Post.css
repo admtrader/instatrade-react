@@ -1,6 +1,8 @@
 .PostDiv {
     margin: 5%;
     padding: 5%;
+    border-radius: 25%;
+    background-color: cornflowerblue;
 }
 
 .PostName {
@@ -11,13 +13,16 @@
 }
 
 .imgbox {
-    background-color: aliceblue;
+    background-color: cornflowerblue;
     position: relative;
+
 
 }
 
 .PostImg {
-    height: 50%;
-    width: 50%;
+    max-height: 14rem;
+    width: auto;
+    border-radius: 15%;
     
 }
+
