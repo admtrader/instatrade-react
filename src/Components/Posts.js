@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import useSWR from "swr";
 
 const Posts = () => {
   const [userPosts, setUserPosts] = useState([]);

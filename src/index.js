@@ -8,7 +8,7 @@ import Posts from './Components/Posts';
 import PostId from './Components/PostId';
 import Feed from './Components/Feed';
 import FormContainer from './Components/FormContainer';
-import Profile from './Components/Profile';
+import Profile from './Components/User/Profile';
 import Signup from './Components/Signup/Signup';
 
 

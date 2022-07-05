@@ -25,6 +25,7 @@ export default function Login({ setToken }) {
       uname: username,
       pw: password,
     });
+    console.log(token)
     setToken(token);
   }
 
