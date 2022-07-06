@@ -10,6 +10,7 @@ import Feed from './Components/Feed';
 import FormContainer from './Components/FormContainer';
 import Profile from './Components/User/Profile';
 import Signup from './Components/Signup/Signup';
+import Welcome from './Components/Welcome/Welcome';
 
 
 
@@ -21,6 +22,7 @@ root.render(
     <Routes>
       <Route path="/signup" element={<Signup />}/>
       <Route path='/' element={<App />}>
+        <Route index element={<Welcome />} />
         <Route path='posts' element={<Posts />}>
           <Route index element={<Feed />} />
           <Route path=':id' element={<PostId />} /> 
