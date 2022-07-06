@@ -1,0 +1,16 @@
+.posts-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+
+.post-link{
+  text-decoration: none;
+  background-color: aqua;
+  color: cadetblue;
+  padding: 2%;
+  border: solid orangered 1px;
+  margin: 1%;
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Info from './Info';
 import useSWR from 'swr';
+import { Link } from 'react-router-dom';
+import "./Profile.css";
 
 
 const Profile = () => {
@@ -9,7 +11,7 @@ const tokenString = sessionStorage.getItem('token');
 const userToken = JSON.parse(tokenString);
 
 //fetcher setup for swr
-const URL = "http://localhost:8000/profile";
+const URL = "https://instatrade-api.herokuapp.com/profile";
 const options = {
   method: "GET",
   headers: {
@@ -47,7 +49,9 @@ const [userinfo, setUserinfo] = useState();
       <div>
         {data ? <h1>Username: {data.username}</h1> : <h1>loading...</h1>}
         {data ? <h1>Email: {data.email}</h1> : <h1>loading...</h1>}
-        {data ? <h1>Posts: {data.posts}</h1> : <h1>loading...</h1>}
+        <hr/>
+        <h2>All Posts</h2>        
+        {data ? <div className='posts-div'>{data.posts.map((post, i) => <Link className='post-link' key={`${i}`} to={`/posts/${post._id}`}>{post.name}</Link>)}</div> : <h1>loading...</h1>}
       </div>
       
       

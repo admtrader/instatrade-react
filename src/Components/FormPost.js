@@ -18,7 +18,7 @@ const FormPost = () => {
     let handlePost = async (e) => {
       e.preventDefault();
 			try {
-				let res = await fetch("http://localhost:8000/post", {
+				let res = await fetch("https://instatrade-api.herokuapp.com/post", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

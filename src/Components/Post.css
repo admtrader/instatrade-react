@@ -26,3 +26,20 @@
     
 }
 
+.btnbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.btnDel {
+    background-color: red;
+    border-radius: 30%;
+    font-size: large;
+}
+
+.btnUp {
+    background-color: yellow;
+    border-radius: 30%;
+    font-size: large;
+}

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { useEffect } from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
@@ -29,11 +28,11 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/posts">Feed</Link> | {" "}
-        <Link to="/posts/new">New Post</Link> | {" "}
-        <Link to="/profile">Profile</Link>
+        <Link className='link' to="/posts">Feed</Link> | {" "}
+        <Link className='link' to="/posts/new">New Post</Link> | {" "}
+        <Link className='link' to="/profile">Profile</Link>
       </nav>
-      <img src={logo} className="App-logo" alt="logo" />
+      
         <Outlet />
     </div>
   );

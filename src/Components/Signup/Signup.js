@@ -3,7 +3,7 @@ import "./Signup.css"
 
 
 async function signupUser(credentials) {
-  return fetch('http://localhost:8000/signup', {
+  return fetch('https://instatrade-api.herokuapp.com/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
