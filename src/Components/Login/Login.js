@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Login.css"
+import { Link } from 'react-router-dom';
 
 
 async function loginUser(credentials) {
@@ -43,7 +44,8 @@ export default function Login({ setToken }) {
         </label>
         <div>
           <button type="submit">Submit</button>
-        </div>
+        </div><br/><br/>
+        <Link to='/signup' >Sign Up Here!</Link>
       </form>
     </div>
   )
