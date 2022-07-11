@@ -10,17 +10,18 @@ const Post = ({post}) => {
 
     
     
-    
+    //this page needs refactored
 
   return (
     <div className="PostDiv">
-      <h1 className="PostName">{post.name}</h1>
       <div className="imgbox">
         <img className="PostImg" src={post.imageUrl} alt="img" />
       </div>
-      <h3 className="PostBody">{post.body}</h3>
-      <Link to={`/posts/${post._id}`}>More info</Link>
-      
+      <div>
+        <h1 className="PostName">{post.name}</h1>
+        <h3 className="PostBody">{post.body}</h3>
+        <Link to={`/posts/${post._id}`}><button className='btnLink'>FindOut More</button></Link>
+      </div>
     </div>
   );
 }

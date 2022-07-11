@@ -1,6 +1,6 @@
 import React from 'react'
 import { useOutletContext, useParams, useNavigate } from "react-router-dom";
-import './Post.css';
+import "./Post.css"
 import useSWR from 'swr';
 
 const PostId = ({}) => {

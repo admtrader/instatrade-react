@@ -1,7 +1,9 @@
 .PostDiv {
+    display: flex;
+    justify-content: space-evenly;
     margin: 5%;
     padding: 5%;
-    border-radius: 25%;
+    border-radius: 16px;
     background-color: cornflowerblue;
 }
 
@@ -15,14 +17,15 @@
 .imgbox {
     background-color: cornflowerblue;
     position: relative;
+    
 
 
 }
 
 .PostImg {
     max-height: 14rem;
-    width: auto;
-    border-radius: 15%;
+    width: 85%;
+    border-radius: 16px;
     
 }
 
@@ -43,3 +46,10 @@
     border-radius: 30%;
     font-size: large;
 }
+
+.btnLink {
+    background-color: royalblue;
+    border-color: blue;
+    font-size: larger;
+    border-radius: 16px;
+} 
