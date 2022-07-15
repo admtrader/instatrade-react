@@ -48,30 +48,30 @@ const FormPost = () => {
 
 
 
-    return (<div>
+    return (<div className="postDiv">
         <form onSubmit={handlePost}>
-            <label>Post Title:</label>
+            <label>Post Title: </label>
             <input 
               type='text'
               value={name}
 							onChange={(e) => setName(e.target.value)}
             />
 						<br/><br/>
-						<label>Post Date:</label>
+						<label>Post Date: </label>
 						<input 
               type='text'
               value={date}
 							onChange={(e) => setDate(e.target.value)}
             />
 						<br/><br/>
-						<label>Post Body</label>
+						<label>Post Body: </label>
 						<input 
               type='text'
               value={body}
 							onChange={(e) => setBody(e.target.value)}
             />
 						<br/><br/>
-						<label>Image URL:</label>
+						<label>Image URL: </label>
 						<input 
               type='text'
               value={imageUrl}

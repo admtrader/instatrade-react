@@ -20,7 +20,7 @@ const Post = ({post}) => {
       <div>
         <h1 className="PostName">{post.name}</h1>
         <h3 className="PostBody">{post.body}</h3>
-        <Link to={`/posts/${post._id}`}><button className='btnLink'>FindOut More</button></Link>
+        <Link to={`/posts/${post._id}`}><button className='btnLink'>Details</button></Link>
       </div>
     </div>
   );

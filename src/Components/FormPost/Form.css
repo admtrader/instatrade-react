@@ -1,3 +1,13 @@
 button {
   background-color: aquamarine;
 }
+
+
+.postDiv {
+  padding-top: 2rem;
+  margin-top: 10rem;
+  border: 5px solid lightblue;
+  border-radius: 16px;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}

@@ -47,7 +47,7 @@ export default function Signup() {
           <input type="email" onChange={e => setEmail(e.target.value)} />
         </label>
         <div>
-          <button type="submit">Sign Up!</button>
+          <button className="formSubmitButton" type="submit">Sign Up!</button>
         </div>
       </form>
       <br/><br/>

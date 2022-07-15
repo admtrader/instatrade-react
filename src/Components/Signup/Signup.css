@@ -1,5 +1,50 @@
+
+body {
+  background-color: gray;
+}
+
 .signup-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: aqua;
+  margin: 10rem;
+  padding: 1rem;
+  border: 5px solid lightskyblue;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+  border-radius: 16px;
+}
+
+
+label {
+  font-size: larger;
+}
+
+
+
+.formSubmitButton {
+  background-color: royalblue;
+  translate: -50%;
+  direction: 50%;
+  margin-top: 1vh;
+  border-radius: 16px;
+  font-size: larger;
+
+
+    
+}
+
+.formSubmitButton:hover {
+  background-color: darkblue;
+  color: white;
+
+}
+.formSubmitButton:active {
+  transform: scale(0.90);
+  box-shadow: 2px 1px grey ;
+}
+
+input {
+  font-size: larger;
 }

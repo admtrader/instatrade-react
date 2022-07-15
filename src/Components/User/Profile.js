@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Info from './Info';
+import PostCard from './PostCard';
 import useSWR from 'swr';
-import { Link } from 'react-router-dom';
 import "./Profile.css";
 
 
@@ -45,13 +44,19 @@ const [userinfo, setUserinfo] = useState();
 
   return (
     <div>
-      <u><h1>Info about You</h1></u>
+      <u><h1>User Profile</h1></u>
       <div>
-        {data ? <h1>Username: {data.username}</h1> : <h1>loading...</h1>}
-        {data ? <h1>Email: {data.email}</h1> : <h1>loading...</h1>}
-        <hr/>
-        <h2>All Posts</h2>        
-        {data ? <div className='posts-div'>{data.posts.map((post, i) => <Link className='post-link' key={`${i}`} to={`/posts/${post._id}`}>{post.name}</Link>)}</div> : <h1>loading...</h1>}
+        <div style={{display: 'flex', flexWrap: 'wrap' , justifyContent: 'space-evenly', borderBottom: 'solid 3px cornflowerblue'}}>
+          {data ? <h1>Username: {data.username}</h1> : <h1>loading...</h1>}
+          {data ? <h1>Email: {data.email}</h1> : <h1>loading...</h1>}
+        </div>
+        
+        <h2>User Posts</h2>        
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        {/* {data ? <div className='posts-div'>{data.posts.map((post, i) => <Link className='post-link' key={`${i}`} to={`/posts/${post._id}`}>{post.name}</Link>)}</div> : <h1>loading...</h1>} */}
+        {data?.posts.map((post, i)=> <PostCard post={post} key={i}/> )}
+        
+        </div>
       </div>
       
       
