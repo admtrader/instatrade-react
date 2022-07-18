@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 async function loginUser(credentials) {
@@ -20,7 +20,8 @@ export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const [message, setMessage] = useState();
-  
+
+  const navigate = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -35,7 +36,10 @@ export default function Login({ setToken }) {
       console.log(message)
     } else if(token.msg === 'no user in db'){
       setMessage('You need to sign up first.')
-    } else {setToken(token);}
+    } else {
+      setToken(token);
+      navigate('/posts')
+    }
     // setToken(token);
     
   }
