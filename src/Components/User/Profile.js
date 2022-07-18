@@ -55,7 +55,7 @@ const [userinfo, setUserinfo] = useState();
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
         {/* {data ? <div className='posts-div'>{data.posts.map((post, i) => <Link className='post-link' key={`${i}`} to={`/posts/${post._id}`}>{post.name}</Link>)}</div> : <h1>loading...</h1>} */}
         {data?.posts.map((post, i)=> <PostCard post={post} key={i}/> )}
-        
+        {data?.posts.length === 0 ? <p>You dont have any posts.</p> : <p></p>}
         </div>
       </div>
       

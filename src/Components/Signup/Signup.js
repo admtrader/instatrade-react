@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./Signup.css"
+import { useNavigate } from 'react-router-dom'
 
 
 async function signupUser(credentials) {
+  console.log(credentials)
   return fetch('https://instatrade-api.herokuapp.com/signup', {
     method: 'POST',
     headers: {
@@ -10,7 +12,10 @@ async function signupUser(credentials) {
     },
     body: JSON.stringify(credentials)
   })
-    .then(data => data.json())
+    .then(res => res.json())
+    .then(data => {
+      return data
+    })
 }
 
 
@@ -20,14 +25,21 @@ export default function Signup() {
   const [pw, setPassword] = useState();
   const [email, setEmail] = useState();
 
+  const navigate = useNavigate()
+
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log("uname", uname)
+    console.log("pw", pw)
+    console.log("email", email)
     const signupMessage = await signupUser({
       uname: uname,
       pw: pw,
       email: email,
     });
-    
+    if(signupMessage.msg === 'User Created Successfully'){
+      navigate('/login')
+    }
   }
 
   return(

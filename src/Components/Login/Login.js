@@ -19,6 +19,8 @@ async function loginUser(credentials) {
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [message, setMessage] = useState();
+  
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -27,7 +29,15 @@ export default function Login({ setToken }) {
       pw: password,
     });
     console.log(token)
-    setToken(token);
+    if(token.msg === 'you entered the wrond pw'){
+      console.log('you made it here')
+      setMessage('You entered the wrong password.')
+      console.log(message)
+    } else if(token.msg === 'no user in db'){
+      setMessage('You need to sign up first.')
+    } else {setToken(token);}
+    // setToken(token);
+    
   }
 
   return(
@@ -45,6 +55,7 @@ export default function Login({ setToken }) {
         <div>
           <button className="formSubmitButton" type="submit">Submit</button>
         </div><br/><br/>
+        {message ? <h4 style={{color: 'red'}}>{message}</h4> : <p></p>}
         <Link to='/signup' >Sign Up Here!</Link>
       </form>
     </div>

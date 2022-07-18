@@ -13,7 +13,7 @@ const PostCard = ({post}) => {
     //   </div> */}
     
       <div style={polaroid}>
-        <img style={{width: '200px', height: '200px', objectFit: 'cover',  }}src={post.imageUrl} />
+        <img style={{width: '200px', borderRadius: '16px 16px 0 0' , height: '200px', objectFit: 'cover',  }}src={post.imageUrl} />
         <div style={container}>
           <p>{post.name}</p>
         </div>
@@ -30,7 +30,8 @@ const polaroid = {
   justifyContent: 'space-between',
   width: '200px',
   marginBottom: '25px',
-  boxShadow: '2px 2px 10px rgb(0, 0, 0, 0.2)',
+  borderRadius: '16px',
+  boxShadow: '6px 6px black',
   background: '#000',
   color: '#fff',
 }

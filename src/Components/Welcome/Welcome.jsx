@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
+
+
+
+
+
+
   return (
     <div>
       <h1>Welcome to the App!</h1><br/><br/>
