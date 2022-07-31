@@ -5,6 +5,8 @@
     padding: 5%;
     border-radius: 16px;
     background-color: cornflowerblue;
+    border: solid black 3px;
+    box-shadow: 3px 3px 0 0 ;
 }
 
 .PostName {
@@ -17,6 +19,7 @@
 .imgbox {
     background-color: cornflowerblue;
     position: relative;
+    border: none;
     
 
 
@@ -26,6 +29,7 @@
     max-height: 14rem;
     width: 85%;
     border-radius: 16px;
+    border: solid black 2px;
     
 }
 
@@ -43,13 +47,14 @@
 
 .btnUp {
     background-color: yellow;
+    color: black;
     border-radius: 30%;
     font-size: large;
 }
 
 .btnLink {
     background-color: royalblue;
-    border-color: blue;
+    border: solid black;
     font-size: larger;
     border-radius: 16px;
 } 

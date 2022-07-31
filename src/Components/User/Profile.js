@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PostCard from './PostCard';
 import useSWR from 'swr';
 import "./Profile.css";
@@ -6,9 +7,9 @@ import "./Profile.css";
 
 const Profile = () => {
 
-const tokenString = sessionStorage.getItem('token');
+const tokenString = localStorage.getItem('token');
 const userToken = JSON.parse(tokenString);
-
+const navigate = useNavigate();
 //fetcher setup for swr
 const URL = "https://instatrade-api.herokuapp.com/profile";
 const options = {
@@ -40,17 +41,60 @@ const [userinfo, setUserinfo] = useState();
   //     });
   // }, []);
 
+  const Logout = () => {
+    localStorage.removeItem('token')
+    navigate('/posts');
+  }
+
 
 
   return (
     <div>
-      <u><h1>User Profile</h1></u>
+      <u><h1>Account Info</h1></u>
       <div>
-        <div style={{display: 'flex', flexWrap: 'wrap' , justifyContent: 'space-evenly', borderBottom: 'solid 3px cornflowerblue'}}>
+        {/* <div style={{display: 'flex', flexWrap: 'wrap' , justifyContent: 'space-evenly', borderBottom: 'solid 3px cornflowerblue'}}>
           {data ? <h1>Username: {data.username}</h1> : <h1>loading...</h1>}
           {data ? <h1>Email: {data.email}</h1> : <h1>loading...</h1>}
+        </div> */}
+        <div className='accDiv'>
+          <h2>Account Summary</h2>
+          <div className='sumParentDiv'>
+            <h3>Email</h3>
+            <div className='sumDiv'>
+              <div className='sumDivChild'>
+                <p>Primary Email:</p>
+              </div>
+              <div className='sumDivChild'>
+                <p>{data?.email}</p>
+              </div>
+            </div>
+          </div>
+          <div className='sumParentDiv'>
+            <h3>Name</h3>
+            <div className='sumDiv'>
+              <div className='sumDivChild'>
+                <p>Username:</p>
+              </div>
+              <div className='sumDivChild'>
+                <p>{data?.username}</p>
+              </div>
+            </div>
+          </div>
+          <div className='btnDiv'>
+            <div className='btnContainer'>
+              <div>
+                <button onClick={Logout}>Log Out</button>
+              </div>
+              <div>
+                <button>Edit Profile</button>
+              </div>
+            </div>
+          </div>
         </div>
+
         
+          {/* going to implement a delete button here for the posts as well as an edit button */}
+
         <h2>User Posts</h2>        
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
         {/* {data ? <div className='posts-div'>{data.posts.map((post, i) => <Link className='post-link' key={`${i}`} to={`/posts/${post._id}`}>{post.name}</Link>)}</div> : <h1>loading...</h1>} */}

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./Form.css";
 
 
+
+// need to put in a useNavigate and redirect after user creates 
+// a new post
+
 const FormPost = () => {
 
     const [name, setName] = useState('');
@@ -11,7 +15,7 @@ const FormPost = () => {
 		const [message, setMessage] = useState("");
 
 
-		const tokenString = sessionStorage.getItem('token');
+		const tokenString = localStorage.getItem('token');
 		const userToken = JSON.parse(tokenString)
 		
 
@@ -78,7 +82,7 @@ const FormPost = () => {
 							onChange={(e) => setImage(e.target.value)}
             />
 						<br/><br/>
-					<input type='submit' value='Submit' />
+					<button type="submit">Create</button>
         </form>
 				<br/>
 				<br/>

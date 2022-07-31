@@ -8,8 +8,6 @@ const Post = ({post}) => {
 
     
 
-    
-    
     //this page needs refactored
 
   return (

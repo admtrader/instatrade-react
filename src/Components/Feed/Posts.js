@@ -5,7 +5,7 @@ import useSWR from "swr";
 const Posts = () => {
   const [userPosts, setUserPosts] = useState([]);
 
-  const tokenString = sessionStorage.getItem('token');
+  const tokenString = localStorage.getItem('token');
 const userToken = JSON.parse(tokenString);
 
 //fetcher setup for swr

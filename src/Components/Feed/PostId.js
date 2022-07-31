@@ -8,7 +8,7 @@ const PostId = ({}) => {
   let params = useParams();
   let navigate = useNavigate();
 
-  const tokenString = sessionStorage.getItem('token');
+  const tokenString = localStorage.getItem('token');
   const userToken = JSON.parse(tokenString);
 
   //fetcher setup for swr

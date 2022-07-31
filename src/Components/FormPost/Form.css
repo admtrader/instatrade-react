@@ -1,5 +1,10 @@
 button {
-  background-color: aquamarine;
+  background-color: darkblue;
+  color: white;
+  height: 30px;
+  border-radius: 10px;
+  border: lightblue;
+  box-shadow: 1px 1px 0 0  black;
 }
 
 
@@ -7,7 +12,7 @@ button {
   padding-top: 2rem;
   margin-top: 10rem;
   border: 5px solid lightblue;
-  border-radius: 16px;
-  margin-left: 15rem;
-  margin-right: 15rem;
+  border-radius: 10px;
+  margin: auto;
+    margin-top: 10rem;
 }

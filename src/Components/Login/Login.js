@@ -16,15 +16,28 @@ async function loginUser(credentials) {
 
 
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, user, setUser }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const [message, setMessage] = useState();
 
+  const [clickedSubmit, setClickedSubmit] = useState(false);
+
   const navigate = useNavigate();
+
+
+  function saveUser(token) {
+    let userObj = JSON.parse(atob(token.token.split('.')[1])).user;
+    console.log('this is the userOBJ from',userObj);
+    setUser(userObj);
+  }
+  
+
+
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setClickedSubmit(true);
     const token = await loginUser({
       uname: username,
       pw: password,
@@ -38,15 +51,17 @@ export default function Login({ setToken }) {
       setMessage('You need to sign up first.')
     } else {
       setToken(token);
+      saveUser(token);
+      setClickedSubmit(false);
       navigate('/posts')
     }
-    // setToken(token);
-    
   }
+
 
   return(
     <div className='login-wrapper'>
       <h1>Please Log In</h1>
+      {clickedSubmit ? <h2>Loading...</h2> : null}
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
