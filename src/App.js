@@ -1,4 +1,4 @@
-import { useEffect, createContext, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
 import Login from './Components/Login/Login';
@@ -8,9 +8,18 @@ import useToken from './Components/Login/useToken';
 
 function App() {
 
-  const [user, setUser] = useState({});
-  const UserContext = createContext();
-  
+  const [user, setUser] = useState();
+  const tokenString = localStorage.getItem('token');
+  const userObj = JSON.parse(atob(tokenString.split('.')[1])).user;
+  //setUser(userObj);
+  console.log(userObj)
+
+  useEffect(() => {
+    if(userObj !== null){
+      setUser(userObj)
+    }
+  }, [])
+
   const { token, setToken} = useToken();
  
 
@@ -30,8 +39,7 @@ function App() {
         <Link className='link' to="/posts/new">New Post</Link> | {" "}
         <Link className='link' to="/profile">Profile</Link>
       </nav>
-      
-        <Outlet />
+      <Outlet context={user} />
     </div>
   );
 }

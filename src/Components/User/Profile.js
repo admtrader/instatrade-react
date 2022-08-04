@@ -4,12 +4,15 @@ import PostCard from './PostCard';
 import useSWR from 'swr';
 import "./Profile.css";
 
+//Stil need to implement an update component and route.
+
 
 const Profile = () => {
 
 const tokenString = localStorage.getItem('token');
 const userToken = JSON.parse(tokenString);
 const navigate = useNavigate();
+
 //fetcher setup for swr
 const URL = "https://instatrade-api.herokuapp.com/profile";
 const options = {
@@ -21,7 +24,7 @@ const options = {
 const fetcher = (...args) => fetch(...args, options).then(res => res.json());
 
 //swr to fetch user profile data
-const { data, error } = useSWR(URL, fetcher)
+const { data, error } = useSWR(URL, fetcher, { refreshWhenHidden: true, refreshInterval: 1000 })
 
 
 const [userinfo, setUserinfo] = useState();

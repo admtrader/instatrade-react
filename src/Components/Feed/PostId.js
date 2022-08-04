@@ -3,7 +3,7 @@ import { useOutletContext, useParams, useNavigate } from "react-router-dom";
 import "./Post.css"
 import useSWR from 'swr';
 
-const PostId = ({}) => {
+const PostId = ({user}) => {
 
   let params = useParams();
   let navigate = useNavigate();
@@ -42,14 +42,10 @@ const PostId = ({}) => {
 
 
   return (
-    <div>
+    <div style={{background: 'cornflowerblue', margin: '8rem', borderRadius: '10px'}}>
       <h1>{mainPost.name}</h1>
-      <img style={{height: "40vh", width: "auto"}} src={mainPost.imageUrl} alt="shoe" />
+      <img style={{height: "40vh", width: "auto", borderRadius: '6px'}} src={mainPost.imageUrl} alt="shoe" />
       <h2>{mainPost.body}</h2>
-      <div className='btnbox'>
-        <button onClick={handleDelete} className='btnDel' >Delete Post</button>
-        <button className='btnUp' >Update Post</button>
-      </div>
       {/* <div>{data ? <h1>{data}</h1> : <span></span>}</div> */}
       
     </div>
