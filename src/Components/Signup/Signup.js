@@ -63,6 +63,7 @@ export default function Signup() {
         </div>
       </form>
       <br/><br/>
+      <button style={{cursor: 'pointer'}} onClick={() => navigate('/login')}>Go Back</button>
     </div>
   )
 }

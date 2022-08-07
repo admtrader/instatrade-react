@@ -75,7 +75,7 @@ export default function Login({ setToken, user, setUser }) {
           <button className="formSubmitButton" type="submit">Submit</button>
         </div><br/><br/>
         {message ? <h4 style={{color: 'red'}}>{message}</h4> : <p></p>}
-        <Link to='/signup' >Sign Up Here!</Link>
+        <Link className="btnLink" to='/signup' >Sign Up Here!</Link>
       </form>
     </div>
   )

@@ -11,6 +11,8 @@ import FormContainer from './Components/FormPost/FormContainer';
 import Profile from './Components/User/Profile';
 import Signup from './Components/Signup/Signup';
 import Welcome from './Components/Welcome/Welcome';
+import Logout from './Components/Logout/Logout';
+import EditProfile from './Components/User/EditProfile';
 
 
 
@@ -21,6 +23,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/signup" element={<Signup />}/>
+      <Route path='/logout' element={<Logout />} />
+      <Route path='/updateprofile' element={<EditProfile />} />
       <Route path='/' element={<App />}>
         <Route index element={<Welcome />} />
         <Route path='posts' element={<Posts />}>

@@ -46,7 +46,7 @@ const [userinfo, setUserinfo] = useState();
 
   const Logout = () => {
     localStorage.removeItem('token')
-    navigate('/posts');
+    navigate('/logout');
   }
 
 
@@ -89,7 +89,7 @@ const [userinfo, setUserinfo] = useState();
                 <button onClick={Logout}>Log Out</button>
               </div>
               <div>
-                <button>Edit Profile</button>
+                <button onClick={() => navigate('/updateprofile')}>Edit Profile</button>
               </div>
             </div>
           </div>
